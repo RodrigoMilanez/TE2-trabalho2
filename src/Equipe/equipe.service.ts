@@ -12,7 +12,9 @@ export class EquipeService {
 
 
   findAll() {
-    return this.equipeRepository.find();
+    return this.equipeRepository.find({
+      relations: { pilotos: true },
+    });
   }
 
   async findById(id: string): Promise<EquipeEntity> {
