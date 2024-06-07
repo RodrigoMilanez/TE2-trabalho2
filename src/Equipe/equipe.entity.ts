@@ -16,12 +16,12 @@ export class EquipeEntity {
     @Column({ type: 'date', name: 'data_fundacao', nullable: true })
     dataFundacao: Date;
 
-    
+    /**
     @Column({ nullable: false ,unique: true})
     @IsInt()
     @Min(0)
     @Max(2)
-    pilotosAtivos: number;
+    pilotosAtivos: number;*/
 
     @Column({ nullable: false ,unique: true})
     numero: number; //fazer exception para iguais

@@ -5,9 +5,16 @@ Regras de negócio
         EQUIPES só podem ter 2 pilotos ATIVOS
         DTO EQUIPE não pode receber pilotos nem carros
         se EQUIPE de piloto tiver 2 piltos ATIVOS, retornar erro de capacidade atingida
+        
+   
     Regras PILOTOS
         PILOTOS não podem ser criados como ATIVOS
         PILOTOS devem ter mais que 21 anos
-        PILOTOS são 
+        PILOTOS devem ter suas 3 letras iniciais como APELIDO
 
-    Para ATIVAR caros 
+    Regras Carros
+        Para ATIVAR CARROS os mesmos devem estar vinculados a um piloto
+        a PLACA do CARRO deve ser unica, e é composta do padrão da equipe, numero do Chassi, e do número do piloto
+        o chassi do carro deve ser unico
+        PESQUISA deve procurar por pilto e por equipe
+

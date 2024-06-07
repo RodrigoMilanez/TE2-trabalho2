@@ -1,5 +1,6 @@
 import { EquipeEntity } from "src/Equipe/equipe.entity";
 import { PilotoEntity } from "src/Piloto/piloto.entity";
+import { StatusEnum } from "src/statusEnum";
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'carro' })
@@ -26,11 +27,14 @@ export class CarroEntity {
     @JoinColumn()
     piloto: PilotoEntity
     
-     /**
-      
-      * 
-      * Status
-     */
+
+    @Column({
+        type: 'enum',
+        enum: StatusEnum,
+        default: StatusEnum.INATIVO,
+        nullable: true,
+      })
+      status: StatusEnum;
 
 
 

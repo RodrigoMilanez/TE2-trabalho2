@@ -1,6 +1,7 @@
 import { IsDate } from "class-validator";
 import { CarroEntity } from "src/Carro/carro.entity";
 import { EquipeEntity } from "src/Equipe/equipe.entity";
+import { StatusEnum } from "src/statusEnum";
 import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'pilotos' })
@@ -25,16 +26,13 @@ export class PilotoEntity {
 
     @OneToOne(() => CarroEntity, (carro) => carro.piloto) 
     carro: CarroEntity
-/**
-    @OneToOne(() => CarroEntity)
-    @JoinColumn()
-    carro: CarroEntity
 
-    
-    Equipe
+    @Column({
+        type: 'enum',
+        enum: StatusEnum,
+        default: StatusEnum.INATIVO,
+        nullable: true,
+      })
+      status: StatusEnum;
 
-    carro
-
-    status
-     */
 }

@@ -2,6 +2,7 @@ import { Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { EquipeEntity } from "./equipe.entity";
 import { Repository } from "typeorm";
+import { EquipeDto } from "./equipe.dto";
 
 @Injectable()
 export class EquipeService {
@@ -33,14 +34,15 @@ export class EquipeService {
     return { ...findById, id };
   }
 
-  async create(dto: EquipeEntity) {
+  async create(dto: EquipeDto) {
     const newEquipe = this.equipeRepository.create(dto);
     return this.equipeRepository.save(newEquipe);
   }
 
-  async update({ id, ...dto }: EquipeEntity) {
+
+  async update({ id, ...equipe }: EquipeEntity) {
     await this.findById(id);
-    return this.equipeRepository.save({ id, ...dto });
+    return this.equipeRepository.save({ id, ...equipe });
   }
 
 

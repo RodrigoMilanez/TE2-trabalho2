@@ -1,4 +1,4 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { PilotoEntity } from "./piloto.entity";
 import { Repository } from "typeorm";
@@ -33,9 +33,12 @@ export class PilotoService {
     return { ...findById, id };
   }
 
-  async create(dto: PilotoEntity) {
-    const newEquipe = this.pilotoRepository.create(dto);
-    return this.pilotoRepository.save(newEquipe);
+  async create(piloto: PilotoEntity) {
+    const newPiloto = this.pilotoRepository.create(piloto);
+
+    this.validatePilotoNascimento(piloto);
+
+    return this.pilotoRepository.save(newPiloto);
   }
 
   async update({ id, ...dto }: PilotoEntity) {
@@ -43,7 +46,28 @@ export class PilotoService {
     return this.pilotoRepository.save({ id, ...dto });
   }
 
-
-
-
+  private validatePilotoNascimento(piloto: PilotoEntity) {
+    const dataAtual = new Date();
+    const dataNascimento = new Date(piloto.dataNasc);
+    const diferencaAno =
+      dataAtual.getUTCFullYear() - dataNascimento.getUTCFullYear();
+    if (diferencaAno < 21) {
+      throw new BadRequestException('O piloto deve ter no mínimo 21 anos');
+    } else if (diferencaAno === 21) {
+      const meses =
+        dataAtual.getUTCMonth() + 1 - (dataNascimento.getUTCMonth() + 1);
+      if (meses < 0) {
+        throw new BadRequestException(
+          `O autor deve ter no mínimo 21 anos (faltam ainda ${meses * -1} mes(es))`,
+        );
+      } else if (dataAtual.getUTCMonth() - dataNascimento.getUTCMonth() === 0) {
+        const dias = dataAtual.getUTCDate() - dataNascimento.getUTCDate();
+        if (dias < 0) {
+          throw new BadRequestException(
+            `O piloto deve ter no mínimo 21 anos (faltam ainda ${dias * -1} dia(s))`,
+          );
+        }
+      }
+    }
+  }
 }

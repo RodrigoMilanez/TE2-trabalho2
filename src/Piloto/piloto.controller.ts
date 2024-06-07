@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post } from "@nestjs/common";
+import { Body, Controller, Delete, Get, Param, Post, Put } from "@nestjs/common";
 import { PilotoService } from "./piloto.service";
 import { PilotoEntity } from "./piloto.entity";
 
@@ -26,4 +26,8 @@ export class PilotoController {
     return this.pilotoService.create(piloto);
   }
 
+  @Put(':id')
+  update(@Param('id') id: string, @Body() piloto: PilotoEntity) {
+    return this.pilotoService.update({ id, ...piloto });
+  }
 }
