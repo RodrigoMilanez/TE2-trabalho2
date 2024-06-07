@@ -1,5 +1,6 @@
+import { EquipeEntity } from "src/Equipe/equipe.entity";
 import { PilotoEntity } from "src/Piloto/piloto.entity";
-import { Column, Entity, JoinColumn, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'carro' })
 export class CarroEntity {
@@ -17,12 +18,16 @@ export class CarroEntity {
     @Column({ nullable: false ,length: 7  })
     placa: string;
 
-    
+    @ManyToOne(() => EquipeEntity, (equipe) => equipe.carros)
+    equipe: EquipeEntity
 
+
+    @OneToOne(() => PilotoEntity)
+    @JoinColumn()
+    piloto: PilotoEntity
+    
      /**
-      * Piloto
-      * 
-      * Equipe
+      
       * 
       * Status
      */

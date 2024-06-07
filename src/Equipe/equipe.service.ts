@@ -13,7 +13,9 @@ export class EquipeService {
 
   findAll() {
     return this.equipeRepository.find({
-      relations: { pilotos: true },
+      relations: { pilotos: true ,
+        carros:true
+      },
     });
   }
 

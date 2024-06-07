@@ -12,7 +12,11 @@ export class CarroService {
 
 
   findAll() {
-    return this.carroRepository.find();
+    return this.carroRepository.find({
+      relations: { equipe: true ,
+        piloto: true
+      }
+    });
   }
 
   async findById(id: string): Promise<CarroEntity> {

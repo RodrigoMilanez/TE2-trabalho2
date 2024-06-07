@@ -13,7 +13,9 @@ export class PilotoService {
 
   findAll() {
     return this.pilotoRepository.find({
-      relations: { equipe: true },
+      relations: { equipe: true,
+        carro:true
+       },
     });
   }
 

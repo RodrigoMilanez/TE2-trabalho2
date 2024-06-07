@@ -1,0 +1,13 @@
+Regras de negócio
+    enum ATIVO
+    pilotos e carros ATIVOS/DESATIVOS
+    Regras EQUIPES
+        EQUIPES só podem ter 2 pilotos ATIVOS
+        DTO EQUIPE não pode receber pilotos nem carros
+        se EQUIPE de piloto tiver 2 piltos ATIVOS, retornar erro de capacidade atingida
+    Regras PILOTOS
+        PILOTOS não podem ser criados como ATIVOS
+        PILOTOS devem ter mais que 21 anos
+        PILOTOS são 
+
+    Para ATIVAR caros 

@@ -18,12 +18,13 @@ export class PilotoEntity {
     dataNasc: Date;
 
     @Column({ nullable: false ,unique: true})
-    numero: number;
+    numero: number;//fazer exception para iguais
 
     @ManyToOne(() => EquipeEntity, (equipe) => equipe.pilotos)
     equipe: EquipeEntity
 
-    
+    @OneToOne(() => CarroEntity, (carro) => carro.piloto) 
+    carro: CarroEntity
 /**
     @OneToOne(() => CarroEntity)
     @JoinColumn()
