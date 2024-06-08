@@ -26,4 +26,9 @@ export class CarroController {
     return this.carroService.create(carro);
   }
 
+  @Put(':id')
+  update(@Param('id') id: string, @Body() carro: CarroEntity) {
+    return this.carroService.update({ id, ...carro });
+  }
+
 }

@@ -1,7 +1,8 @@
+import { IS_INT, IsInt, isInt } from "class-validator";
 import { EquipeEntity } from "src/Equipe/equipe.entity";
 import { PilotoEntity } from "src/Piloto/piloto.entity";
 import { StatusEnum } from "src/statusEnum";
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, Generated, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'carro' })
 export class CarroEntity {
@@ -10,8 +11,11 @@ export class CarroEntity {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column({ length: 100, unique : true})
-    chassi: string;
+
+    @IsInt()
+    @Column({ name: 'chassi', unique : true})
+    @Generated('increment')
+    chassi: number;
 
     @Column({ type: 'date', name: 'data_fabricacao', nullable: true })
     fabricacao: Date;
