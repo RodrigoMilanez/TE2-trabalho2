@@ -11,7 +11,7 @@ export class CarroService {
     @InjectRepository(CarroEntity)
     private carroRepository: Repository<CarroEntity>,
     private equipeService: EquipeService,
-    private pilotoService: PilotoService
+    private readonly pilotoService: PilotoService
   ) {}
 
    novaPlaca: string;
