@@ -16,6 +16,10 @@ export class PilotoController {
     return this.pilotoService.findById(id);
   }
 
+  @Get('number/:numero') // Rota com parâmetro 'nome'
+  findByNumero(@Param('numero') numero: number) {
+    return this.pilotoService.findByNumber( numero );
+  }
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.pilotoService.remove(id);

@@ -1,8 +1,9 @@
-import { Injectable, NotFoundException } from "@nestjs/common";
+import { BadRequestException, Injectable, NotFoundException } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { EquipeEntity } from "./equipe.entity";
 import { Repository } from "typeorm";
 import { EquipeDto } from "./equipe.dto";
+import { PilotoEntity } from "src/Piloto/piloto.entity";
 
 @Injectable()
 export class EquipeService {
@@ -10,7 +11,7 @@ export class EquipeService {
     @InjectRepository(EquipeEntity)
     private equipeRepository: Repository<EquipeEntity>,
   ) {}
-
+  private contadorPilotosAtivos: number;
 
   findAll() {
     return this.equipeRepository.find({
@@ -40,12 +41,34 @@ export class EquipeService {
   }
 
 
-  async update({ id, ...equipe }: EquipeEntity) {
+  async update({ id, ...dto }: EquipeEntity) {
     await this.findById(id);
-    return this.equipeRepository.save({ id, ...equipe });
+    return this.equipeRepository.save({ id, ...dto });
   }
 
+  public async validaCapacidade(piloto: PilotoEntity){
+    const findById = await this.findById(piloto.equipe.id);
+    
 
+    if (findById.pilotosAtivos <= 2) {
+      this.contadorPilotosAtivos++; // Incrementar o contador
+      findById.pilotosAtivos++;
+      this.update(findById); // Atualizar a equipe no banco de dados
+      console.log(findById);
+    } else {
+      throw new BadRequestException('Equipe já tem a capacidade máxima de pilotos ativos');
+    }
+
+  }
+
+  public async diminuiCapacidade(piloto: PilotoEntity){
+    const findById = await this.findById(piloto.equipe.id);
+    if (findById.pilotosAtivos > 0) {
+      findById.pilotosAtivos--;
+      this.update(findById);
+      console.log(findById);
+    }
+  }
 
 
 }

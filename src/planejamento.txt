@@ -2,24 +2,31 @@ Regras de negócio
     enum ATIVO
     pilotos e carros ATIVOS/DESATIVOS
     Regras EQUIPES
-        EQUIPES só podem ter 2 pilotos ATIVOS
-        DTO EQUIPE não pode receber pilotos nem carros
+        EQUIPES só podem ter 2 pilotos ATIVOS - - X
         se EQUIPE de piloto tiver 2 piltos ATIVOS, retornar erro de capacidade atingida
 
    
     Regras PILOTOS
-        PILOTOS não podem ser criados como ATIVOS - X
+        PILOTOS deve ser da mesma equipe de CARRO para ser ativo - X
         PILOTOS devem ter mais que 21 anos - X
         PILOTOS devem ter um número unico - X
         PILOTOS para serem ativos necessitam de um patrocinador master
 
     Regras Carros
-        Para ATIVAR CARROS os mesmos devem estar vinculados a um piloto
-        a PLACA do CARRO deve ser unica, e é composta do padrão da equipe, numero do Chassi, e do número do piloto
-        o chassi do carro deve ser unicoV -X
-        PESQUISA deve procurar por pilOto e por equipe
+        a PLACA do CARRO deve ser unica, e é composta do numero da equipe, numero do Chassi, e do número do piloto
+        o chassi do carro deve ser unico e usado como padrão de PESQUISA -x
+        Carros apenas podem estar vinculados a piltos da mesma qeuipe - 
 
 PROGRESSO
 FIZ O CARRO PODER LINKAR COM O PILOTOS
 CHASSI DE CARRO GERA E INCREMENTA
+
+PILOTO
+ PILOTO precisa de equipe e carro para ser ATIVO
+ PILOTO precisa ter mais de 21 anos para ser cadastrado
+ PILOTO deve ter um número único de sua escolha que irá identificar o carro
+    e servirá de padrão de busca.
+
+CARRO
+    
 
