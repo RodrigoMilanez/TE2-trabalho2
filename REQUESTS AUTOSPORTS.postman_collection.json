@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "69282acf-beea-4537-a528-639e896c4e84",
+		"name": "REQUESTS AUTOSPORTS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "16956137"
+	},
+	"item": [
+		{
+			"name": "POST",
+			"item": [
+				{
+					"name": "POST Carros",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"fabricacao\": \"2001-11-12\",\r\n        \"placa\": \"0d001\",\r\n        \"equipe\":  {\r\n        \"id\": \"b04aa0a4-48db-4b2c-9866-bf04e158727b\",\r\n        \"nome\": \"Andretti Autosport\",\r\n        \"dataFundacao\": \"1993-06-06\",\r\n        \"numero\": 77,\r\n        \"origem\": \"Indianapolis - US\"\r\n        }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/carros"
+					},
+					"response": []
+				},
+				{
+					"name": "POST Equipes",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n    {\r\n        \"nome\": \"Aston Martin Aramco Cognizant F1 Team\",\r\n        \"dataFundacao\": \"2021-01-07\",\r\n        \"pilotosAtivos\": 0,\r\n        \"numero\": 6,\r\n        \"origem\": \"Reino Unido\",\r\n        \"pilotos\": [],\r\n        \"carros\": []\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/equipes"
+					},
+					"response": []
+				},
+				{
+					"name": "POST pilotos",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"nome\": \"Fernando Alonso\",\r\n        \"dataNasc\": \"1985-05-23\",\r\n        \"numero\": 15,\r\n        \"status\": \"I\",\r\n        \"equipe\":{\r\n        \"id\": \"27bdc1bd-375a-43f7-a3a5-3eb2f1dbf21e\",\r\n        \"nome\": \"Aston Martin Aramco Cognizant F1 Team\",\r\n        \"dataFundacao\": \"2021-01-07\",\r\n        \"pilotosAtivos\": 0,\r\n        \"numero\": 6,\r\n        \"origem\": \"Reino Unido\",\r\n        \"pilotos\": [],\r\n        \"carros\": []\r\n    }\r\n } ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/pilotos/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GET",
+			"item": [
+				{
+					"name": "GET Equipes",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"Andretti Autosport\",\r\n        \"dataFundacao\": \"1993-06-06\",\r\n        \"numero\": 77,\r\n        \"origem\": \"Indianapolis - US\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/equipes/"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Carros",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"fabricacao\": \"2001\",\r\n        \"equipe\": \"8292014f-281f-4ae8-b1c0-dd049fe03d0d\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/carros"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Pilotos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"nome\": \"Carlos Sainz Senior\",\r\n        \"dataNasc\": \"1954-09-01\",\r\n        \"numero\": 56\r\n } ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/pilotos/"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Pilotos ID",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"nome\": \"Carlos Sainz Senior\",\r\n        \"dataNasc\": \"1954-09-01\",\r\n        \"numero\": 56\r\n } ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/pilotos/378fde11-930a-4ef5-8869-55ff1b2ebd98"
+					},
+					"response": []
+				},
+				{
+					"name": "GET Pilotos por numero",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n        \"nome\": \"Carlos Sainz Senior\",\r\n        \"dataNasc\": \"1954-09-01\",\r\n        \"numero\": 56\r\n } ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/pilotos/number/55"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PUT",
+			"item": [
+				{
+					"name": "PUT pilotos",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"id\": \"6086ccc5-8a17-4a60-bdfb-b45b43da63cf\",\r\n        \"nome\": \"Carlos Sainz Senior\",\r\n        \"dataNasc\": \"1954-09-01\",\r\n        \"numero\": 56,\r\n        \"status\": \"A\",\r\n        \"equipe\": {\r\n            \"id\": \"b04aa0a4-48db-4b2c-9866-bf04e158727b\",\r\n            \"nome\": \"Andretti Autosport\",\r\n            \"dataFundacao\": \"1993-06-06\",\r\n            \"pilotosAtivos\": 0,\r\n            \"numero\": 77,\r\n            \"origem\": \"Indianapolis - US\"\r\n        },\r\n        \"carro\": {\r\n            \"id\": \"4aecdcf5-7bca-4bac-98bd-f84799f9ddfd\",\r\n            \"chassi\": 3,\r\n            \"fabricacao\": \"2001-09-27\",\r\n            \"placa\": \"Andrtt1\",\r\n            \"status\": \"I\"\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/pilotos/378fde11-930a-4ef5-8869-55ff1b2ebd98"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Carros",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"id\": \"cc1f469d-ad3a-479b-8ee4-d9bfeba040ad\",\r\n        \"chassi\": 6,\r\n        \"fabricacao\": \"2001-11-12\",\r\n        \"placa\": \"0d5001\",\r\n        \"status\": \"I\",\r\n        \"equipe\": {\r\n            \"id\": \"b04aa0a4-48db-4b2c-9866-bf04e158727b\",\r\n            \"nome\": \"Andretti Autosport\",\r\n            \"dataFundacao\": \"1993-06-06\",\r\n            \"pilotosAtivos\": 2,\r\n            \"numero\": 77,\r\n            \"origem\": \"Indianapolis - US\"\r\n        },\r\n        \"piloto\": {\r\n             \"id\": \"b673c530-e0e1-4773-96be-37b4cb82eba6\",\r\n        \"nome\": \"Lance Stroll\",\r\n        \"dataNasc\": \"2000-05-23\",\r\n        \"numero\": 23,\r\n        \"status\": \"I\",\r\n        \"equipe\": {\r\n            \"id\": \"b04aa0a4-48db-4b2c-9866-bf04e158727b\",\r\n            \"nome\": \"Andretti Autosport\",\r\n            \"dataFundacao\": \"1993-06-06\",\r\n            \"pilotosAtivos\": 2,\r\n            \"numero\": 77,\r\n            \"origem\": \"Indianapolis - US\"\r\n        }\r\n        }\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/carros/9f79d81d-e6fa-472f-b0c8-69d659e35960"
+					},
+					"response": []
+				},
+				{
+					"name": "PUT equipes",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n        \"nome\": \"Andretti Autosport\",\r\n        \"dataFundacao\": \"1993-06-06\",\r\n        \"pilotosAtivos\": 0,\r\n        \"numero\": 77,\r\n        \"origem\": \"Indianapolis - US\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:3000/equipes/b04aa0a4-48db-4b2c-9866-bf04e158727b"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

@@ -16,6 +16,11 @@ export class CarroController {
     return this.carroService.findById(id);
   }
 
+  @Get('chassi/:chassi') // Rota com parâmetro 'nome'
+  findByNumero(@Param('chassi') chassi: number) {
+    return this.carroService.findByNumber( chassi );
+  }
+
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.carroService.remove(id);

@@ -22,11 +22,20 @@ FIZ O CARRO PODER LINKAR COM O PILOTOS
 CHASSI DE CARRO GERA E INCREMENTA
 
 PILOTO
- PILOTO precisa de equipe e carro para ser ATIVO
- PILOTO precisa ter mais de 21 anos para ser cadastrado
- PILOTO deve ter um número único de sua escolha que irá identificar o carro
-    e servirá de padrão de busca.
+    PILOTO precisa de equipe e carro para ser ATIVO
+    PILOTO precisa ter mais de 21 anos para ser cadastrado
+    PILOTO deve ter um número único de sua escolha que irá identificar o carro
+        e servirá de padrão de busca.
 
 CARRO
+    CARRO deverá deverá ter número único de chassi que autogera quando criado
+    CARRO e PILOTO devem estar na mesma equipe para serem vinculados
+    CARRO terá uma placa que conterá todas as informações sobre equipe, chassi e pilotos. Marcando todos os pilotos que já foram atribuidos a ele.
+
+EQUIPE  
+    EQUIPE terá de ser criada com um patrocinador master
+    EQUIPE não pode ter mais de dois pilotos ativos ao mesmo tempo
+    EQUIPE terá um numero identificador que será usado para busca e identificação na placa do carro
+
     
 

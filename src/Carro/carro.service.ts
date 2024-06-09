@@ -32,6 +32,15 @@ export class CarroService {
     return findOne;
   }
 
+  async findByNumber(chassi: number): Promise<CarroEntity> {
+    const findOne = await this.carroRepository.findOne({ where: { chassi }, relations: { equipe: true
+     }, });
+    if (!findOne) {
+      throw new NotFoundException('Piloto não encontrado com o chassi ' + chassi);
+    }
+    return findOne;
+  }
+
   async remove(id: string) {
     const findById = await this.findById(id);
     await this.carroRepository.remove(findById);
