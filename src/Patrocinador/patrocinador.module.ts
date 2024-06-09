@@ -8,5 +8,6 @@ import { PatrocinadorService } from "./patrocinador.service";
     imports: [TypeOrmModule.forFeature([PatrocinadorEntity])],
     controllers: [PatrocinadorController],
     providers: [PatrocinadorService],
+    exports: [PatrocinadorService],
   })
-  export class EquipeModule {}
+  export class PatrocinadorModule {}
