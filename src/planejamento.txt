@@ -17,9 +17,6 @@ Regras de negócio
         o chassi do carro deve ser unico e usado como padrão de PESQUISA -x
         Carros apenas podem estar vinculados a piltos da mesma qeuipe - 
 
-PROGRESSO
-FIZ O CARRO PODER LINKAR COM O PILOTOS
-CHASSI DE CARRO GERA E INCREMENTA
 
 PILOTO
     PILOTO precisa de equipe e carro para ser ATIVO

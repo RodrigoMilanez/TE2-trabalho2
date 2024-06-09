@@ -1,8 +1,9 @@
 import { IsDate } from "class-validator";
 import { CarroEntity } from "src/Carro/carro.entity";
 import { EquipeEntity } from "src/Equipe/equipe.entity";
+import { PatrocinadorEntity } from "src/Patrocinador/patrocinador.entity";
 import { StatusEnum } from "src/statusEnum";
-import { Column, Entity, JoinColumn, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity({ name: 'pilotos' })
 export class PilotoEntity {
@@ -35,4 +36,12 @@ export class PilotoEntity {
       })
       status: StatusEnum;
 
+
+      @ManyToMany(() => PatrocinadorEntity, (patrocinador) => patrocinador.pilotos)
+      @JoinTable({
+        name: 'pilotos_patrocinadores',
+        joinColumn: { name: 'piloto_id' },
+        inverseJoinColumn: { name: 'patricinador_id' },
+      })
+      patrocinadores: PatrocinadorEntity[];    
 }
