@@ -1,4 +1,5 @@
 import { IsDateString, IsEnum, IsInt, IsNotEmpty, IsOptional, IsString, IsUUID } from "class-validator";
+import { PatrocinadorEntity } from "src/Patrocinador/patrocinador.entity";
 
 export class EquipeDto {
     @IsUUID()
@@ -20,8 +21,7 @@ export class EquipeDto {
     @IsOptional()
     dataFundacao: Date;
 
-    @IsUUID()
     @IsNotEmpty({ message: 'A equipe deve ser criada com um patrocinador' })
-    equipeId: string;
+    patrocinador : PatrocinadorEntity;
   
   }

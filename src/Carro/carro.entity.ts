@@ -1,4 +1,4 @@
-import { IS_INT, IsInt, isInt } from "class-validator";
+import { IsDate, IsInt, IsOptional, IsUUID } from "class-validator";
 import { EquipeEntity } from "src/Equipe/equipe.entity";
 import { PilotoEntity } from "src/Piloto/piloto.entity";
 import { StatusEnum } from "src/statusEnum";
@@ -7,7 +7,8 @@ import { Column, Entity, Generated, JoinColumn, ManyToOne, OneToOne, PrimaryGene
 @Entity({ name: 'carro' })
 export class CarroEntity {
 
-
+    @IsUUID()
+    @IsOptional()
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
@@ -17,6 +18,7 @@ export class CarroEntity {
     @Generated('increment')
     chassi: number;
 
+    @IsDate()
     @Column({ type: 'date', name: 'data_fabricacao', nullable: true })
     fabricacao: Date;
 

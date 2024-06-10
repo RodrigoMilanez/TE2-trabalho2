@@ -1,4 +1,4 @@
-import { IsDate } from "class-validator";
+import { IsDate, IsInt, isInt } from "class-validator";
 import { CarroEntity } from "src/Carro/carro.entity";
 import { EquipeEntity } from "src/Equipe/equipe.entity";
 import { PatrocinadorEntity } from "src/Patrocinador/patrocinador.entity";
@@ -19,6 +19,7 @@ export class PilotoEntity {
     @Column({ type: 'date', name: 'data_nasc', nullable: true })
     dataNasc: Date;
 
+    
     @Column({ nullable: false ,unique: true})
     numero: number;//fazer exception para iguais
 
