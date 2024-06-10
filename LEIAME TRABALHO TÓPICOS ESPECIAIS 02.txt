@@ -1,0 +1,22 @@
+Regras de negócio
+
+PILOTO
+    PILOTO precisa de equipe e carro para ser ATIVO
+    PILOTO precisa ter mais de 21 anos para ser cadastrado
+    PILOTO deve ter um número único de sua escolha que irá identificar o carro
+        e servirá de padrão de busca.
+
+CARRO
+    CARRO deverá deverá ter número único de chassi que autogera e incrementa quando criado.
+    CARRO e PILOTO devem estar na mesma equipe para serem vinculados.
+    CARRO terá uma placa que conterá os números informando sobre equipe, chassi e pilotos. 
+    CARRO deverá ser criado atribuído a uma equipe.
+
+EQUIPE  
+    EQUIPE terá de ser criada com um patrocinador master 
+    EQUIPE não pode ter mais de dois pilotos ativos ao mesmo tempo
+    EQUIPE terá um numero identificador que será usado para busca e identificação na placa do carro
+
+    
+
+

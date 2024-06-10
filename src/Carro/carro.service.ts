@@ -70,7 +70,7 @@ export class CarroService {
   private AlteraPlaca(novoCarro , carro){
     const equipe= this.equipeService.findById(novoCarro.equipe.id);
     const piloto= this.pilotoService.findById(novoCarro.piloto.id);
-    this.novaPlaca = novoCarro.chassi + novoCarro.equipe.numero + novoCarro.piloto.numero;
+    this.novaPlaca = String(novoCarro.chassi) + String(novoCarro.equipe.numero) + String(novoCarro.piloto.numero);
     novoCarro.placa = this.novaPlaca;
   }
 
