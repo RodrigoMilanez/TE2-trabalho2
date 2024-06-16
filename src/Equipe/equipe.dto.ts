@@ -20,8 +20,5 @@ export class EquipeDto {
     @IsDateString()
     @IsOptional()
     dataFundacao: Date;
-
-    @IsNotEmpty({ message: 'A equipe deve ser criada com um patrocinador' })
-    patrocinador : PatrocinadorEntity;
   
   }
