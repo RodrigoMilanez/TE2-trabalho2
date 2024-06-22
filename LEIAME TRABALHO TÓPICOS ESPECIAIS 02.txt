@@ -21,5 +21,7 @@ EQUIPE
     EQUIPE terá um numero identificador que será usado para busca e identificação na placa do carro
 
     
-
+ALTERAÇÕES DO BACK
+fazer two way biding
+na criação de carro já atualizar a PLACA
 

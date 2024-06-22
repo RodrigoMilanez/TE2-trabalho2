@@ -30,7 +30,7 @@ export class PilotoService {
     return findOne;
   }
 
-  async findByNumber(numero: number): Promise<PilotoEntity> {
+  async findByEquipe(numero: number): Promise<PilotoEntity> {
     const findOne = await this.pilotoRepository.findOne({ where: { numero }, relations: { equipe: true,
       carro:true
      }, });
