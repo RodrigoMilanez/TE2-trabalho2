@@ -61,15 +61,13 @@ export class CarroService {
   private validaPiloto(novoCarro , carro){
     const piloto= this.pilotoService.findById(novoCarro.piloto.id);
     if(novoCarro.piloto.equipe = novoCarro.equipe ) {
-      this.AlteraPlaca(novoCarro,carro);
+      this.AlteraPlaca(novoCarro);
       console.log("+++++")
     } else{
       throw new BadRequestException('O piloto e o carro devem pertencer a mesma equipe');
     }
   }
-  private AlteraPlaca(novoCarro , carro){
-    const equipe= this.equipeService.findById(novoCarro.equipe.id);
-    const piloto= this.pilotoService.findById(novoCarro.piloto.id);
+  private AlteraPlaca(novoCarro ){
     this.novaPlaca = String(novoCarro.chassi) + String(novoCarro.equipe.numero) + String(novoCarro.piloto.numero);
     novoCarro.placa = this.novaPlaca;
   }
